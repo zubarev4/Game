@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Žaidimas atminčiai lavinti</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad:ital,wght@0,400..700;1,400..700&family=Jaro:opsz@6..72&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body class="bg-blue-50 flex items-center justify-center min-h-screen">
+    <div id="game" class="w-full max-w-xl p-6 bg-white rounded-3xl shadow-lg text-center">
+        <h1 class="text-4xl font-bold text-blue-600 mb-6">Žaidimas atminčiai lavinti</h1>
+        <div id="player-info" class="mb-4">
+            <label for="player-name" class="block text-lg text-gray-700 font-semibold mb-2">Įveskite vardą:</label>
+            <input
+                type="text"
+                id="player-name"
+                class="w-full p-3 border border-blue-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"
+                placeholder="Jūsų vardas"
+                aria-label="Įveskite savo vardą"
+                >
+            <label for="difficulty" class="block text-lg text-gray-700 font-semibold mt-4">Pasirinkite sudėtingumą:</label>
+            <select
+                id="difficulty"
+                class="w-full p-3 border border-blue-300 rounded-lg focus:ring focus:ring-blue-200 focus:outline-none"
+                aria-label="Pasirinkite žaidimo sudėtingumą"
+            >
+                <option value="easy">Lengvas</option>
+                <option value="medium">Vidutiniškas</option>
+                <option value="hard">Sunkus</option>
+            </select>
+            <button
+                id="start-game"
+                class="mt-4 w-full bg-blue-500 text-white py-2 rounded-full font-semibold hover:bg-blue-600"
+                aria-label="Pradėti žaidimą"
+            >
+            Pradėti žaidimą
+            </button>
+        </div>
+        <div id="score-board" class="text-left hidden bg-blue-100 rounded-xl p-4 mt-4">
+            <p id="matches" class="text-lg text-gray-800 font-semibold">Rasta porų: 0</p>
+            <p id="time" class="text-lg text-gray-800 font-semibold">Laikas: 0</p>
+        </div>
+        <div id="game-board" class="hidden grid gap-4 mt-6"></div>
+        <div id="high-scores" class="high-scores hidden">
+            <h2>Rezultatai</h2>
+            <div class="high-scores-grid">
+                <div>
+                    <h3>Lengvas</h3>
+                    <ul id="high-scores-easy"></ul>
+                </div>
+                <div>
+                    <h3>Vidutiniškas</h3>
+                    <ul id="high-scores-medium"></ul>
+                </div>
+                <div>
+                    <h3>Sunkus</h3>
+                    <ul id="high-scores-hard"></ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<!--
+Nielsen euristikos principai:
+
+1. Sistemos būsenos matomumas (Visibility of System Status)
+   - Žaidėjas visada mato, kiek porų surasta ir kiek laiko praėjo žaidimo metu.
+   - Vizualinė grįžtamoji informacija leidžia suprasti žaidimo progresą.
+
+2. Naudotojo kontrolė ir laisvė (User Control and Freedom)
+   - Žaidėjui suteikiama galimybė pradėti naują žaidimą ir patvirtinti dialogą po žaidimo pabaigos.
+   - Užtikrinama, kad naudotojas gali lengvai koreguoti ar tęsti savo veiksmus.
+
+3. Klaidos prevencija (Error Prevention)
+   - Naudojami pranešimai, padedantys išvengti klaidų (pvz., vardo įvedimo).
+   - Kortelės negali būti per klaidą atverstos daugiau nei dvi vienu metu.
+
+4. Estetika ir minimalistinis dizainas (Aesthetic and Minimalist Design)
+   - Sąsaja aiški, paprasta, tinkamai išdėstyta ir optimizuota įvairiems ekranams.
+-->
